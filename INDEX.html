@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TICKER</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/time.webp">
+  <link rel="stylesheet" href="style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header with Logo and Theme Toggle -->
+  <header>
+    <div class="logo">TICKER</div>
+    <div class="theme-toggle" id="toggle">🌕</div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+    <div id="clock">00:00:00</div>
+    <div id="date"></div>
+
+    <!-- 12/24 Hour Toggle -->
+    <div class="format-toggle-container">
+      <button id="format-toggle">Switch 12/24 Hr</button>
+    </div>
+
+    <!-- Timezone Dropdown -->
+    <div class="timezone">
+      <label for="tz">Time Zone: </label>
+      <div class="custom-dropdown" id="dropdown">
+        <div class="selected">Asia/Kolkata</div>
+        <ul class="options">
+          <li data-value="local">Local</li>
+          <li data-value="UTC">UTC</li>
+          <li data-value="America/New_York">New York</li>
+          <li data-value="Europe/London">London</li>
+          <li data-value="Asia/Kolkata" class="active">India</li>
+          <li data-value="Asia/Tokyo">Tokyo</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hidden select for timezone logic -->
+    <select id="tz" style="display:none;">
+      <option value="local">Local</option>
+      <option value="UTC">UTC</option>
+      <option value="America/New_York">New York</option>
+      <option value="Europe/London">London</option>
+      <option value="Asia/Kolkata" selected>India</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+    </select>
+  </main>
+<!-- Footer -->
+<footer class="footer">
+  <div class="social-icons">
+    <a href="https://github.com/Prrashanthpkp" target="_blank" class="icon github"> 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297a12 12 0 00-3.79 23.4c.6.111.82-.261.82-.58 0-.287-.011-1.046-.017-2.053-3.338.725-4.042-1.608-4.042-1.608-.546-1.386-1.334-1.754-1.334-1.754-1.09-.745.083-.73.083-.73 1.205.084 1.84 1.238 1.84 1.238 1.07 1.834 2.809 1.304 3.495.997.108-.774.418-1.305.762-1.604-2.665-.303-5.466-1.335-5.466-5.932 0-1.31.468-2.381 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013.003-.404c1.02.004 2.046.138 3.003.404 2.289-1.552 3.294-1.23 3.294-1.23.655 1.653.243 2.873.12 3.176.77.839 1.235 1.91 1.235 3.22 0 4.609-2.807 5.625-5.479 5.921.43.371.813 1.102.813 2.222 0 1.604-.014 2.896-.014 3.293 0 .322.216.697.825.578A12.006 12.006 0 0012 .297z"/></svg>
+    </a>
+    <a href="https://instagram.com" target="_blank" class="icon instagram">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.34 3.608 1.315.975.975 1.253 2.242 1.315 3.608.058 1.266.069 1.646.069 4.847s-.012 3.584-.07 4.85c-.062 1.366-.34 2.633-1.315 3.608-.975.975-2.242 1.253-3.608 1.315-1.266.058-1.646.069-4.847.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.34-3.608-1.315-.975-.975-1.253-2.242-1.315-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.34-2.633 1.315-3.608C4.523 2.503 5.79 2.225 7.156 2.163 8.422 2.105 8.802 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.765.131 4.618.442 3.68 1.38c-.938.938-1.25 2.085-1.309 3.372C2.013 6.332 2 6.741 2 12s.013 5.668.072 6.948c.059 1.287.37 2.434 1.308 3.372.938.938 2.085 1.25 3.372 1.309C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.287-.059 2.434-.37 3.372-1.308.938-.938 1.25-2.085 1.309-3.372.059-1.28.072-1.689.072-6.948s-.013-5.668-.072-6.948c-.059-1.287-.37-2.434-1.309-3.372-.938-.938-2.085-1.25-3.372-1.309C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+    </a>
+    <a href="https://facebook.com" target="_blank" class="icon facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.592 0 0 .593 0 1.326v21.348C0 23.407.592 24 1.325 24H12v-9.294H9.294V11.41H12V8.705c0-2.673 1.632-4.128 4.013-4.128 1.144 0 2.125.085 2.412.123v2.799l-1.656.001c-1.3 0-1.552.618-1.552 1.524v2H18.8l-.31 3.295h-2.014V24h3.95c.733 0 1.325-.593 1.325-1.326V1.326C24 .593 23.407 0 22.675 0z"/></svg>
+    </a>
+  </div>
+</footer>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
